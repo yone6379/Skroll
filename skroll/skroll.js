@@ -268,24 +268,6 @@
 
 			// スクロールバーの有無
 			this.noScrollBar = this.scrollBarHeight > _opt.height;
-
-			// 画像がある場合は画像の読み込み完了を待つ
-			if ( $images.length ) {
-				_this.imgLength = $images.length;
-				$images.each(function() {
-					$(this).m5ImgLoad(function() {
-						_this.imgLoaded = _this.imgLoaded + 1;
-					})
-				});
-
-				(function() {
-					if ( _this.imgLoaded === _this.imgLength ) {
-						_this.innerHeight = $elm.get(0).offsetHeight;
-						return;
-					}
-					setTimeout(arguments.callee, 30);
-				}());
-			}
 		},
 		barFadeIn: function(delay) {
 			var _opt = this.option;
@@ -823,32 +805,4 @@
 			}, false);
 		}
 	};
-
-	/**
-	 * m5ImgLoad
-	 *
-	 * @version      0.2
-	 * @author       nori (norimania@gmail.com)
-	 * @copyright    5509 (http://5509.me/)
-	 * @license      The MIT License
-	 * @link         https://github.com/5509/m5ImgLoad
-	 *
-	 * 2011-02-08 15:41
-	 */
-	$.fn.m5ImgLoad = function(callback, interval) {
-		var _img = $(this).get(0),
-			newImg = new Image();
-
-		newImg.src = _img.src;
-
-		(function() {
-			if ( newImg.complete ) {
-				callback.call($(newImg));
-				return;
-			}
-			setTimeout(arguments.callee, interval || 20);
-		}());
-		return this;
-	};
-
 }(jQuery, this, this.document));
