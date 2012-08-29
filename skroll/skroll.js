@@ -557,6 +557,9 @@
 				})
 				.bind(MOUSEWHEEL, function(e) {
 					e = e || window.event;
+ 					if ( e.originalEvent ) {
+						e = e.originalEvent;
+					}
 					// detailはwheelDeltaと正負が逆になり
 					// 値もwheelDeltaの1/10
 					var _delta = Math.round(e.wheelDelta/10) || -e.detail,
