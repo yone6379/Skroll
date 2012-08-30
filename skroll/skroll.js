@@ -139,7 +139,9 @@
 
 		if ( this.noScrollBar ) {
 			this.$bar.css("opacity", 0);
-			this.$scrollBarBg.css("opacity", 0);
+			if ( this.$scrollBarBg ) {
+				this.$scrollBarBg.css("opacity", 0);
+			}
 		} else
 		if ( _opt.scrollBarHide ) {
 			if ( MOBILE ) {
