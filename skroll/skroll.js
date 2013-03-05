@@ -225,7 +225,7 @@
 				.css({
 					margin          : 0,
 					height          : "auto",
-					overflow        : "auto",
+					overflow        : "hidden",
 					position        : MOBILE ? "static" : "relative",
 					opacity         : 1,
 					WebkitTransform : MATRIX
